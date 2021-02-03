@@ -1,7 +1,7 @@
 import  mongoose  from 'mongoose'
 
 
-const appointmentSchema = mongoose.Schema({
+const appointmentsSchema = mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -40,6 +40,6 @@ const appointmentSchema = mongoose.Schema({
  }
 )
 
-const Appointment = mongoose.model('Appointment',appointmentSchema)
+const Appointment = mongoose.model('Appointment',appointmentsSchema)
 
 export default Appointment;
