@@ -40,4 +40,31 @@ const registerUser = asyncHandler(async(req,res)=>{
 
 })
 
-export {registerUser}
+
+//@route:POST  /api/user/login
+//@desc login user
+//@access public
+
+const authUser = asyncHandler(async(req,res)=>{
+    const {email,password} = req.body
+
+    const user = await User.findOne({email})
+
+    if(user && (await user.matchPassword(password))){
+        res.send({
+            _id:user.id,
+            name:user.name,
+            email:user.email,
+            isAdmin:user.isAdmin,
+            token:generateAuthToken(user._id)
+        })
+    }
+    else{
+       
+        res.status(401).send({message:"Invalid UserName Or Password"})
+        
+    }
+
+})
+
+export {registerUser,authUser}
