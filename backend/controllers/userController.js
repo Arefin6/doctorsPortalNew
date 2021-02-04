@@ -1,12 +1,11 @@
+import User from '../models/userModel.js';
+import asyncHandler from 'express-async-handler';
+import generateAuthToken from '../utilities/generateAuthToken.js'
 
 
-
-
-//@route: /api/user
+//@route:POST  /api/user
 //@desc register user
 //@access public
-
-
 
 const registerUser = asyncHandler(async(req,res)=>{
      
@@ -16,8 +15,7 @@ const registerUser = asyncHandler(async(req,res)=>{
       
      if(userExits){
          res.status(400)
-        
-         throw new Error('User already exists')
+         res.json({message:"Email Already Used"})
      }
 
      const user = await User.create({
@@ -37,7 +35,9 @@ const registerUser = asyncHandler(async(req,res)=>{
      }
      else{
          res.status(400)
-         throw new Error('Invalid user data')
+         res.json({message:"Invalid Email Or Password"})
      }
 
 })
+
+export {registerUser}
