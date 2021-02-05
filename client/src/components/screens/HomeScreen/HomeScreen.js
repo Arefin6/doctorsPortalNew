@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../../Header/Header';
 
 const HomeScreen = () => {
     return (
         <>
-         <h2 className="text-info">Welcome to Doctors Portal</h2>   
+         <Header></Header>
         </>
     );
 };

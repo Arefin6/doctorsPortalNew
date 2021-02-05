@@ -1,0 +1,46 @@
+.header-container {
+    height:700px;
+    position:relative;
+    background-image: url('../../images/chairbg.png');
+    background-size: cover;
+    background-position: center;
+   
+}
+
+.header-container::after {
+    height:600px;
+    content:' ';
+    position: absolute;
+    top: 0;
+    width: 35%;
+    right: 0;
+    background-color: #3a4256;
+    z-index: -33;
+}
+.btn-appointment{
+    color:#fff;
+    padding: 2%; 
+    background-image: linear-gradient(75deg,#19d3AE, #0fcfce);
+    text-transform: uppercase;
+    border-color: transparent;
+    font-weight: 600;
+} 
+.primary-color{
+    color: #1CC7C1;
+}  
+.info-card{
+    padding: 0 5px;
+}
+.info-primary{
+    background-color: #1CC7C1;
+}
+.info-dark{
+    background-color: #3a4256;
+}
+.info-container{
+    height:100px;
+    padding: 30px;
+}
+.info-icon{
+    font-size: 3rem;
+}
