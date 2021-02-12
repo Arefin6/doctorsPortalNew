@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { userRegisterAction } from '../../../Actions/userAction';
 import photo from '../../../images/Group 140.png';
+import Loader from '../../Loader';
+import Message from '../../Message';
 
 const SignUpScreen = () => {
 
     const [name,setName] = useState('') 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+
+    
+   const dispatch = useDispatch() 
+   
+   const userRegister = useSelector(state => state.userRegister )
+   const {loading,error,userInfo} = userRegister
+
+   const history = useHistory()
+
+   useEffect(()=>{
+     if(userInfo){
+         history.push('/dashboard/appointment')
+     }
+   },[userInfo,history])
  
     const handleSubmit = (e) =>{
+      dispatch(userRegisterAction(name,email,password))  
      e.preventDefault()
     }
 
@@ -17,6 +37,8 @@ const SignUpScreen = () => {
         <div className="row">
           <div className="col-md-4 col-md-offset-2 mt-5 pt-5 pl-5  ">
               <h2 className="text-center">SignUp</h2>
+              {error && <Message>{error}</Message>}
+            {loading && <Loader></Loader>}
              <form className='mt-5' onSubmit={handleSubmit}>
                <div className="form-group">
                       <label htmlFor="name" className="form-label">Name</label>
