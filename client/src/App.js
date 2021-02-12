@@ -4,8 +4,10 @@ import {
   Route
 } from "react-router-dom";
 import HomeScreen from '../src/components/screens/HomeScreen/HomeScreen'
+import ContactScreen from "./components/screens/ContactScreen/ContactScreen";
 import LoginScreen from "./components/screens/LoginScreen/LoginScreen";
 import SignUpScreen from "./components/screens/SignUpScreen/SignUpScreen";
+import UserAppointment from "./components/screens/UserAppoinrtment/userAppointment";
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
             </Route>
             <Route path='/signup'>
               <SignUpScreen></SignUpScreen>
+            </Route>
+            <Route path='/contact'>
+             <ContactScreen></ContactScreen>
+            </Route>
+            <Route path='/dashboard/appointment'>
+              <UserAppointment></UserAppointment>
             </Route>
           </Switch>
           
