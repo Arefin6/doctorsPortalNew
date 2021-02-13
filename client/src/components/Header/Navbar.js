@@ -15,13 +15,13 @@ const Navbar = () => {
   </button>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav ml-auto">
+    <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
         <Link className="nav-link mr-5" to="/">Home</Link>
       </li>
       {
         userInfo && <li className="nav-item">
-        <Link className="nav-link mr-5" to="/dashboard/appointment">Dashboard</Link>
+        <Link className="nav-link mr-5 " to="/dashboard/appointment">Dashboard</Link>
       </li>
       }
       
@@ -29,20 +29,20 @@ const Navbar = () => {
          !userInfo && 
          <>
          <li className="nav-item">
-        <Link className="nav-link mr-5 text-white" to="/login">Login</Link>
+        <Link className="nav-link mr-5 " to="/login">Login</Link>
         </li>
        <li className="nav-item">
-        <Link className="nav-link mr-5 text-white" to="/signup">Signup</Link>
+        <Link className="nav-link mr-5 " to="/signup">Signup</Link>
        </li>
       </>
        }
       
 
       <li className="nav-item">
-        <Link className="nav-link mr-5 text-white" to="#">Blog</Link>
+        <Link className="nav-link mr-5 " to="#">Blog</Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link mr-5 text-white" to="/contact">Contact Us</Link>
+        <Link className="nav-link mr-5 " to="/contact">Contact Us</Link>
       </li>
     </ul>
   </div>
