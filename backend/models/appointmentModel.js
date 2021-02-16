@@ -19,11 +19,11 @@ const appointmentsSchema = mongoose.Schema({
         required:true,
     },
     age:{
-        type:String,
+        type:Number,
         required:true,
     },
     weight:{
-        type:String,
+        type:Number,
         required:true,
     }
     ,service:{
