@@ -7,7 +7,6 @@ const Navbar = () => {
    const userLogin = useSelector(state => state.userLogin)
    const {userInfo} =userLogin 
 
-
     return (
 <nav className="navbar navbar-expand-lg navbar-light">
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +38,7 @@ const Navbar = () => {
       
 
       <li className="nav-item">
-        <Link className="nav-link mr-5 " to="#">Blog</Link>
+        <a className="nav-link mr-5 " href="blog">Blog</a>
       </li>
       <li className="nav-item">
         <Link className="nav-link mr-5 " to="/contact">Contact Us</Link>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import {useDispatch,useSelector} from 'react-redux';
+import { bookAppointmentAction } from '../../../Actions/appointmentAction';
 
 
 const customStyles = {
@@ -22,12 +24,26 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
      const [age,setAge] = useState('');
      const [gender,setGender] = useState('');
      const [weight,setWeight] = useState('');
+
+
+     const dispatch = useDispatch()
      
 
+     const appointmentBook = useSelector(state => state.appointmentBook)
+      const {loading,error,success} = appointmentBook
+
      const handleSubmit = (e) =>{
+         dispatch(bookAppointmentAction(name,email,phone,age,gender,weight, appointmentOn,date))
+         if(success){
+            closeModal()
+            alert("Appointment Booked Successfully")
+
+        }
+         
          e.preventDefault()
      }
-     
+    
+    console.log(gender) 
     return (
         <div>
 
@@ -42,7 +58,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             <form onSubmit={handleSubmit} className="p-5">
                 <div className="form-group">
                     <input type="text" value={name} onChange={e => setName(e.target.value)} name="name" placeholder="Your Name" className="form-control" />
-                    
 
                 </div>
                 <div className="form-group">
@@ -55,12 +70,12 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                 </div>
                 <div className="form-group row">
                     <div className="col-4">
-
+                        
                         <select className="form-control" value={gender} onChange={e => setGender(e.target.value)} name="gender"  >
-                            <option disabled={true} value="Not set">Select Gender</option>
+                          {/* <option disabled={true} value="Not set">Select Gender</option> */}
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
-                            <option value="Not set">Other</option>
+                            <option value="others">Other</option>
                         </select>
                        
                     </div>
