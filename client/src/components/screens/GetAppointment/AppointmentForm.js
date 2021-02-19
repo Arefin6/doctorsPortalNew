@@ -43,7 +43,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
          e.preventDefault()
      }
     
-    console.log(gender) 
     return (
         <div>
 
@@ -71,8 +70,8 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
                 <div className="form-group row">
                     <div className="col-4">
                         
-                        <select className="form-control" value={gender} onChange={e => setGender(e.target.value)} name="gender"  >
-                          {/* <option disabled={true} value="Not set">Select Gender</option> */}
+                        <select className="form-control" value={gender} onChange={(e) => setGender(e.target.value)} name="gender"  >
+                            <option value="">Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="others">Other</option>

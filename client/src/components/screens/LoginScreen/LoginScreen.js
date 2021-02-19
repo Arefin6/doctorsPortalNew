@@ -17,10 +17,11 @@ const LoginScreen = () => {
    const {userInfo,loading,error} = userLogin
 
    const history = useHistory()
+   const redirect = history.location.search ? history.location.search.split('=')[1]:'/'
 
    useEffect(()=>{
      if(userInfo){
-         history.push('/dashboard/appointment')
+         history.push(redirect)
      }
    },[userInfo,history])
 

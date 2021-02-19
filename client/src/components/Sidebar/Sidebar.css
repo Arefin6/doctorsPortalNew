@@ -1,0 +1,33 @@
+.sidebar{
+    background-image: linear-gradient(40deg, #19d3ae,#0fcfec);
+    height: 100vh;
+}
+
+.unStyle{
+    list-style: none;
+    padding-top: 3rem;
+}
+.unStyle li .link {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 5px;
+    display: flex;
+    padding: 10px;
+
+}
+.unStyle li {   
+    margin-bottom: 10px;
+}
+.unStyle li svg{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.unStyle li:hover {
+    
+    display: inline-block;
+    transform: translate(5px);
+}
+.heading-primary{
+ color: aqua;
+ 
+}
