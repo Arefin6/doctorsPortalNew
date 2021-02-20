@@ -31,3 +31,6 @@
  color: aqua;
  
 }
+.logout:hover{
+    cursor: pointer;
+}

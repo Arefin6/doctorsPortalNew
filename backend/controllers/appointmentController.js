@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler';
 
 //@route:POST  /api/appointment/booKAppointment
 //@desc book Appointment
-//@access public
+//@access private
 
 const  bookAppointment= asyncHandler(async(req,res)=>{
      
@@ -34,4 +34,21 @@ const  bookAppointment= asyncHandler(async(req,res)=>{
 
 })
 
-export  {bookAppointment}
+//@route:GET  /api/appointment/my
+//@desc Get my Appointment
+//@access private
+
+
+const getMyAppointments = asyncHandler(async(req,res)=>{
+
+  
+    const appointments =  await Appointment.find({user: req.user._id})
+
+
+   res.send(appointments)
+   
+})
+
+
+
+export  {bookAppointment,getMyAppointments}
