@@ -7,6 +7,7 @@ import HomeScreen from '../src/components/screens/HomeScreen/HomeScreen'
 import ContactScreen from "./components/screens/ContactScreen/ContactScreen";
 import GetAppointmentScreen from "./components/screens/GetAppointment/GetAppointmentScreen";
 import LoginScreen from "./components/screens/LoginScreen/LoginScreen";
+import ProfileScreen from "./components/screens/Profilescreen/ProfileScreen";
 import SignUpScreen from "./components/screens/SignUpScreen/SignUpScreen";
 import UserAppointment from "./components/screens/UserAppoinrtment/userAppointment";
 
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path='/dashboard/appointment'>
               <UserAppointment></UserAppointment>
+            </Route>
+            <Route path='/dashboard/EditProfile'>
+              <ProfileScreen></ProfileScreen>
             </Route>
           </Switch>
           
