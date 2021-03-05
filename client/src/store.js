@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { userDetailsReducer, userLoginReducer, userRegisterReducer,userProfileUpdateReducer } from './Reducers/userRedeucer'
 import {appointmentBookReducer, appointmentMyReducer} from './Reducers/appointmentReducer'
-
+import {sendMessageReducer} from './Reducers/messageReducer';
 const reducer = combineReducers({
     userLogin:userLoginReducer,
     userRegister:userRegisterReducer,
@@ -11,6 +11,7 @@ const reducer = combineReducers({
     userUpdate:userProfileUpdateReducer,
     appointmentBook:appointmentBookReducer,
     appointmentMy:appointmentMyReducer,
+    sendMessage:sendMessageReducer,
 
 })
 
