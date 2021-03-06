@@ -20,7 +20,7 @@ const Navbar = () => {
       </li>
       {
         userInfo && <li className="nav-item">
-        <Link className="nav-link mr-5 " to="/dashboard/appointment">Dashboard</Link>
+        <Link className="nav-link mr-5 " to={userInfo.isAdmin ? '/admin/dashboard': '/dashboard/appointment'}>Dashboard</Link>
       </li>
       }
       

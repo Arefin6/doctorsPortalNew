@@ -5,6 +5,7 @@ import userRoute from './routes/userRoute.js';
 import appointmentRoute from './routes/appointmentRoute.js';
 import messageRoute from './routes/messageRoutes.js';
 
+
 dotEnv.config()
 
 connectDb()
@@ -18,6 +19,8 @@ app.get('/',(req,res)=>{
 app.use('/api/users',userRoute)
 app.use('/api/appointment',appointmentRoute)
 app.use('/api/message',messageRoute)
+
+
 
 const port = process.env.PORT
 app.listen(port||5000,console.log(`listening to port ${port}`))

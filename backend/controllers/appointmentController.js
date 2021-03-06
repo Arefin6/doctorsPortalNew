@@ -48,7 +48,41 @@ const getMyAppointments = asyncHandler(async(req,res)=>{
    res.send(appointments)
    
 })
+//@route:GET  /api/message/count
+//@desc  appointments
+//@access private
+
+const countAppointments = asyncHandler(async(req,res)=>{
+    
+    
+     const totalAppointments = await Appointment.countDocuments({})
+
+     if(totalAppointments){
+        res.status(200) 
+        res.json(totalMessage)
+     }
+     else{
+         res.status(404)
+         res.json({message:"Appointment Not Found"})
+     }
+
+})
 
 
 
-export  {bookAppointment,getMyAppointments}
+//@route:GET  /api/appointment/my
+//@desc Get my Appointment
+//@access private isAdmin
+
+
+const getAppointments = asyncHandler(async(req,res)=>{
+
+  
+    const appointments =  await Appointment.find({})
+
+
+   res.send(appointments)
+   
+})
+
+export  {bookAppointment,getMyAppointments,getAppointments,countAppointments}

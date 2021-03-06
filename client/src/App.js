@@ -4,12 +4,16 @@ import {
   Route
 } from "react-router-dom";
 import HomeScreen from '../src/components/screens/HomeScreen/HomeScreen'
+import AllUser from "./components/screens/AllUserScreen/AllUser";
+import AllMessage from "./components/screens/AllMessageScreen/AllMessage";
 import ContactScreen from "./components/screens/ContactScreen/ContactScreen";
+import Dashboard from "./components/screens/Dashbord/Dashboard";
 import GetAppointmentScreen from "./components/screens/GetAppointment/GetAppointmentScreen";
 import LoginScreen from "./components/screens/LoginScreen/LoginScreen";
 import ProfileScreen from "./components/screens/Profilescreen/ProfileScreen";
 import SignUpScreen from "./components/screens/SignUpScreen/SignUpScreen";
 import UserAppointment from "./components/screens/UserAppoinrtment/userAppointment";
+import AllAppointment from "./components/screens/All AppointmentScreen/AllAppointment";
 
 function App() {
   return (
@@ -37,6 +41,18 @@ function App() {
             </Route>
             <Route path='/dashboard/EditProfile'>
               <ProfileScreen></ProfileScreen>
+            </Route>
+            <Route path='/admin/dashboard/'>
+              <Dashboard></Dashboard>
+            </Route>
+            <Route path="/admin/appointment" exact>
+              <AllAppointment></AllAppointment>
+            </Route>
+            <Route path="/admin/users" exact>
+              <AllUser></AllUser>
+            </Route>
+            <Route path="/admin/message" exact>
+              <AllMessage></AllMessage>
             </Route>
           </Switch>
           

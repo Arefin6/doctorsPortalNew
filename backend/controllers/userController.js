@@ -115,5 +115,43 @@ const updateUserProfile = asyncHandler(async(req,res)=>{
     }
 })
 
+//@route:GET  /api/users/count
+//@desc  Users
+//@access private
 
-export {registerUser,authUser,updateUserProfile,getUserProfile}
+const countUsers = asyncHandler(async(req,res)=>{
+    
+    
+    const totalUsers = await User.countDocuments({})
+
+    if(totalUsers){
+       res.status(200) 
+       res.json(totalMessage)
+    }
+    else{
+        res.status(404)
+        res.json({message:"Appointment Not Found"})
+    }
+
+})
+
+
+
+//@route:GET  /api/appointment/my
+//@desc Get my Appointment
+//@access private isAdmin
+
+
+const getUsers = asyncHandler(async(req,res)=>{
+
+ 
+   const users =  await User.find({})
+
+
+  res.send(users)
+  
+})
+
+
+
+export {registerUser,authUser,updateUserProfile,getUserProfile,countUsers,getUsers}

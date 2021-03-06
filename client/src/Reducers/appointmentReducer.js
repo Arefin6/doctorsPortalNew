@@ -19,7 +19,7 @@ export const appointmentMyReducer = (state={appointments:[]},action) =>{
 
     switch( action.type){
         case APPOINTMENT_MY_REQUEST:
-           return {loading:true}
+           return {...state,loading:true}
         case APPOINTMENT_MY_SUCCESS:
             return {
                 loading:false,
