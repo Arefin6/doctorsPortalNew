@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APPOINTMENT_BOOK_FAIL, APPOINTMENT_BOOK_REQUEST, APPOINTMENT_BOOK_SUCCESS, APPOINTMENT_MY_FAIL, APPOINTMENT_MY_REQUEST, APPOINTMENT_MY_SUCCESS } from '../Constants/appointmentConstants';
+import { APPOINTMENT_ALL_FAIL, APPOINTMENT_ALL_REQUEST, APPOINTMENT_ALL_SUCCESS, APPOINTMENT_BOOK_FAIL, APPOINTMENT_BOOK_REQUEST, APPOINTMENT_BOOK_SUCCESS, APPOINTMENT_MY_FAIL, APPOINTMENT_MY_REQUEST, APPOINTMENT_MY_SUCCESS } from '../Constants/appointmentConstants';
 
 export const bookAppointmentAction = (name,email,phone,age,gender,weight,service,date) =>async(dispatch,getState)=>{
     try {
@@ -76,3 +76,41 @@ export const myAppointmentList = () =>async(dispatch,getState)=>{
         })   
     }
 }
+
+export const appointmentList = () =>async(dispatch,getState)=>{
+    try {
+       dispatch({
+           type:APPOINTMENT_ALL_REQUEST
+       }) 
+
+       const {userLogin:{userInfo}}=getState()
+     
+    
+
+       const config = {
+           headers:{
+               'Content-type':'application/json',
+               Authorization:`Bearer ${userInfo.token}`
+           }
+       }
+
+       const {data} = await axios.get('/api/appointment/all',
+           config) 
+       
+       dispatch({
+           type:APPOINTMENT_ALL_SUCCESS,
+           payload:data
+       })
+    
+
+    } catch (error) {
+        dispatch({
+            type:APPOINTMENT_ALL_FAIL,
+            payload:
+            error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message,
+        })   
+    }
+}
+
