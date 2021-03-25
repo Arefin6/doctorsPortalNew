@@ -31,13 +31,16 @@ async function sendMail() {
         accessToken: accessToken,
       },
     });
-
+    
+    const url ='http://localhost:3000/login'
     const mailOptions = {
       from: 'SENDER NAME <arefinhossain3@gmail.com>',
       to: user.email,
-      subject: 'Hello from gmail using API',
-      text: 'Hello from gmail email using API',
-      html: '<h1>Hello from gmail email using API</h1>',
+      subject: 'Confirm Your Email',
+      text: 'Hello from Doctors Portal Please confirm Your Email',
+      html: `<h1>Hello from Doctors Portal please Confirm Your Email</h1>
+             <a href=${url}>${url}</a>   
+           `,
     };
 
     const result = await transport.sendMail(mailOptions);

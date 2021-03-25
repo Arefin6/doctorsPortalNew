@@ -22,7 +22,7 @@ const SignUpScreen = () => {
 
    useEffect(()=>{
      if(userInfo){
-         history.push('/dashboard/appointment')
+         history.push('/confirm');
      }
    },[userInfo,history])
  

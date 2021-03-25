@@ -14,6 +14,7 @@ import ProfileScreen from "./components/screens/Profilescreen/ProfileScreen";
 import SignUpScreen from "./components/screens/SignUpScreen/SignUpScreen";
 import UserAppointment from "./components/screens/UserAppoinrtment/userAppointment";
 import AllAppointment from "./components/screens/All AppointmentScreen/AllAppointment";
+import ConfirmEmail from "./components/screens/SignUpScreen/ConfirmEmail";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
             </Route>
             <Route path='/admin/dashboard/'>
               <Dashboard></Dashboard>
+            </Route>
+            <Route path='/confirm'>
+              <ConfirmEmail></ConfirmEmail>
             </Route>
             <Route path="/admin/appointment" exact>
               <AllAppointment></AllAppointment>
