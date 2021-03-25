@@ -37,5 +37,6 @@ const protect = asyncHandler(async(req,res,next)=>{
         res.json({message:'Not Authorized As Admin'})
     }
  }
+ 
 
 export {protect,isAdmin}

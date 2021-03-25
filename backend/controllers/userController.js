@@ -1,6 +1,7 @@
 import User from '../models/userModel.js';
 import asyncHandler from 'express-async-handler';
 import generateAuthToken from '../utilities/generateAuthToken.js'
+import verifyUser from '../utilities/verifyUser.js';
 
 
 //@route:POST  /api/user
@@ -17,13 +18,16 @@ const registerUser = asyncHandler(async(req,res)=>{
          res.status(400)
          res.json({message:"Email Already Used"})
      }
+     
+     
 
      const user = await User.create({
          name,
          email,
          password
      })
-
+     verifyUser(user)
+      
      if(user){
          res.status(201).json({
             _id:user.id,
