@@ -15,6 +15,8 @@ import SignUpScreen from "./components/screens/SignUpScreen/SignUpScreen";
 import UserAppointment from "./components/screens/UserAppoinrtment/userAppointment";
 import AllAppointment from "./components/screens/All AppointmentScreen/AllAppointment";
 import ConfirmEmail from "./components/screens/SignUpScreen/ConfirmEmail";
+import ResetPassword from "./components/screens/ResetPassword";
+import NewPassword from "./components/screens/NewPassword";
 
 function App() {
   return (
@@ -48,6 +50,12 @@ function App() {
             </Route>
             <Route path='/confirm'>
               <ConfirmEmail></ConfirmEmail>
+            </Route>
+            <Route exact path='/reset'>
+              <ResetPassword></ResetPassword>
+            </Route>
+            <Route path='/reset/:token'>
+              <NewPassword></NewPassword>
             </Route>
             <Route path="/admin/appointment" exact>
               <AllAppointment></AllAppointment>

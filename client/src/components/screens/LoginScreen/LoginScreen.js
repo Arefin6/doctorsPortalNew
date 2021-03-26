@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Message from '../../Message';
 import Loader from '../../Loader';
+import {Link} from 'react-router-dom';
 import { userLoginAction } from '../../../Actions/userAction';
 import photo from '../../../images/Group 140.png';
 
@@ -58,6 +59,11 @@ const LoginScreen = () => {
                     <button type="submit" className="btn btn-appointment col-md-12">Login</button>
                   
                </form>
+                 <div className="py-4">
+                 <h5>Don't Have Account?<Link className="mx-4" to="/signup">Sign Up</Link></h5>
+                 <Link className="ml-5" to="/reset">Forget Password</Link>
+                 </div>
+               
             </div>
             <div className=" col-md-8">
                 <img src={photo} className="img-fluid" alt=""/>

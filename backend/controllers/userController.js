@@ -157,8 +157,29 @@ const getUsers = asyncHandler(async(req,res)=>{
   
 })
 
+//update new password
+
+const updateNewPassword = asyncHandler(async(req,res)=>{
+
+    const sentToken = req.body.token
+    
+    const user = await User.findOne({resetToken:sentToken,expireToken:{$gt:Date.now()}})
+
+    if(!user){
+        return res.status(422).json({error:"Try again session expired"})
+    }
+
+    user.password = req.body.password;
+
+    const updatedUser = await user.save()
+
+    if(updatedUser){
+        res.json({message:"password updated success"})
+    }
+    
+})
 
 
 
 
-export {registerUser,authUser,updateUserProfile,getUserProfile,countUsers,getUsers}
+export {registerUser,authUser,updateUserProfile,getUserProfile,countUsers,getUsers,updateNewPassword}

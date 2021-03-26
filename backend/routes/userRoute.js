@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/userModel.js';
-import { registerUser,authUser, getUserProfile, updateUserProfile, countUsers, getUsers} from '../controllers/userController.js';
+import { registerUser,authUser, getUserProfile, updateUserProfile, countUsers, getUsers, updateNewPassword} from '../controllers/userController.js';
 import {isAdmin, protect} from '../middleware/authMiddleware.js';
 import crypto from 'crypto';
 import resetEmail from '../utilities/resetEmail.js';
@@ -13,7 +13,8 @@ router.route('/profile')
 router.post('/login',authUser)
 router.get('/count',protect,isAdmin,countUsers)
 router.get('/all',protect,isAdmin,getUsers)
-
+//update Password
+router.post('/new-password',updateNewPassword)
 
 //reset password
 router.post('/reset-password',(req,res)=>{
@@ -37,6 +38,10 @@ router.post('/reset-password',(req,res)=>{
         })
     })
 })
+
+
+    
+
 
 export default router;
 
