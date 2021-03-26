@@ -4,6 +4,7 @@ import generateAuthToken from '../utilities/generateAuthToken.js'
 import verifyUser from '../utilities/verifyUser.js';
 
 
+
 //@route:POST  /api/user
 //@desc register user
 //@access public
@@ -155,6 +156,8 @@ const getUsers = asyncHandler(async(req,res)=>{
   res.send(users)
   
 })
+
+
 
 
 

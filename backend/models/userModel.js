@@ -20,9 +20,11 @@ const userSchema = mongoose.Schema({
         required:true,
         default:false
     },
-     isVerified:{
-        type:Boolean,
-        default:false
+     resetToken:{
+        type:String
+    },
+    expireToken:{
+        type:Date
     }
  },{
    timestamps:true 

@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer'
 import { google } from 'googleapis'
 
-const verifyUser = (user) =>{
+const resetEmail = (user,token) =>{
 
 // These id's and secrets should come from .env file.
 const CLIENT_ID ='110042461265-rql8kc8lubdf3e31u7u0mote2te0vjgs.apps.googleusercontent.com';
@@ -32,15 +32,14 @@ async function sendMail() {
       },
     });
     
-    const url ='http://localhost:3000/login'
+    const url =`http://localhost:3000/reset/${token}`
     const mailOptions = {
-      from: 'Doctors Portal <arefinhossain3@gmail.com>',
-      to: user.email,
-      subject: 'Confirm Your Email',
-      text: 'Hello from Doctors Portal Please confirm Your Email',
-      html: `<h1>Hello from Doctors Portal please Confirm Your Email</h1>
-             <a href=${url}>${url}</a>   
-           `,
+        to:user.email,
+        from:"no-replay@insta.com",
+        subject:"password reset",
+        html:`
+        <p>You requested for password reset</p>
+        <h5>click in this <a href="${url}">link</a> to reset password</h5> `,
     };
 
     const result = await transport.sendMail(mailOptions);
@@ -54,4 +53,4 @@ sendMail()
   .then((result) => console.log('Email sent...', result))
   .catch((error) => console.log(error.message));
 }
-export default verifyUser
+export default resetEmail;
