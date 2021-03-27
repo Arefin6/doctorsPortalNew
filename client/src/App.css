@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.admin-btn{
+  padding: 2rem;
+}

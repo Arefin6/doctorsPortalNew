@@ -162,7 +162,7 @@ const getUsers = asyncHandler(async(req,res)=>{
 const updateNewPassword = asyncHandler(async(req,res)=>{
 
     const sentToken = req.body.token
-    
+
     const user = await User.findOne({resetToken:sentToken,expireToken:{$gt:Date.now()}})
 
     if(!user){
@@ -179,7 +179,40 @@ const updateNewPassword = asyncHandler(async(req,res)=>{
     
 })
 
+//@route:POST  /api/user/addAdmin
+//@desc register Admin
+//@access private
+
+const addAdmin = asyncHandler(async(req,res)=>{
+     
+    const {name,email,password} = req.body
+
+    const userExits = await User.findOne({email})
+      
+     if(userExits){
+         res.status(400)
+         res.json({message:"Email Already Used"})
+     }
+     
+     
+
+     const user = await User.create({
+         name,
+         email,
+         password,
+         isAdmin:true
+     })
+      
+     if(user){
+         res.status(201).json({message:'Admin Added'})
+     }
+     else{
+         res.status(400)
+         res.json({message:"Invalid Email Or Password"})
+     }
+
+})
 
 
 
-export {registerUser,authUser,updateUserProfile,getUserProfile,countUsers,getUsers,updateNewPassword}
+export {addAdmin,registerUser,authUser,updateUserProfile,getUserProfile,countUsers,getUsers,updateNewPassword}

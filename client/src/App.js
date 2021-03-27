@@ -17,6 +17,7 @@ import AllAppointment from "./components/screens/All AppointmentScreen/AllAppoin
 import ConfirmEmail from "./components/screens/SignUpScreen/ConfirmEmail";
 import ResetPassword from "./components/screens/ResetPassword";
 import NewPassword from "./components/screens/NewPassword";
+import AddAdmin from "./components/screens/AddAdmin";
 
 function App() {
   return (
@@ -65,6 +66,9 @@ function App() {
             </Route>
             <Route path="/admin/message" exact>
               <AllMessage></AllMessage>
+            </Route>
+            <Route path="/addAdmin" exact>
+              <AddAdmin></AddAdmin>
             </Route>
           </Switch>
           

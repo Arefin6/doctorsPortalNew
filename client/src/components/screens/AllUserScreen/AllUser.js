@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { getUserList } from '../../../Actions/userAction';
 import Loader from '../../Loader';
 import Message from '../../Message';
@@ -36,6 +36,7 @@ const AllUser = () => {
      </div>
       <div className="col-md-9">
         <h4 className="heading-primary mt-5 text-center">Users</h4>
+         <Link to='/addAdmin' className="btn admin-btn btn-appointment">Add An Admin</Link>
           {
           < UserTable users={users}></ UserTable>       
            }
